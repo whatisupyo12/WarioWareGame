@@ -1,3 +1,60 @@
 [gd_scene format=3 uid="uid://bd7put5yx508w"]
 
-[node name="Minigame1" type="Node2D" unique_id=1035701485]
+[ext_resource type="Script" uid="uid://ccaj118rwxg8c" path="res://Scripts/timer_screen.gd" id="1_c7xwe"]
+[ext_resource type="Texture2D" uid="uid://b7h6hx5jqmjuy" path="res://Assets/background_glacial_mountains.png" id="1_cn3xy"]
+[ext_resource type="Texture2D" uid="uid://p3fmyibv6o5l" path="res://Assets/pixil-frame-0-5.png" id="2_c7xwe"]
+
+[node name="Scene" type="Node2D" unique_id=1035701485]
+script = ExtResource("1_c7xwe")
+
+[node name="Background" type="TextureRect" parent="." unique_id=301759700]
+modulate = Color(0.72156864, 0.72156864, 0.72156864, 1)
+offset_right = 1528.1368
+offset_bottom = 1020.0856
+scale = Vector2(0.7525504, 0.63524085)
+texture = ExtResource("1_cn3xy")
+
+[node name="LivesContainer" type="HBoxContainer" parent="." unique_id=731991868]
+offset_left = 186.0
+offset_top = 126.0
+offset_right = 952.0
+offset_bottom = 276.0
+
+[node name="Life" type="TextureRect" parent="LivesContainer" unique_id=178392680]
+layout_mode = 2
+texture = ExtResource("2_c7xwe")
+
+[node name="Life2" type="TextureRect" parent="LivesContainer" unique_id=572779626]
+layout_mode = 2
+texture = ExtResource("2_c7xwe")
+
+[node name="Life3" type="TextureRect" parent="LivesContainer" unique_id=1756555506]
+layout_mode = 2
+texture = ExtResource("2_c7xwe")
+
+[node name="Life4" type="TextureRect" parent="LivesContainer" unique_id=1293814156]
+layout_mode = 2
+texture = ExtResource("2_c7xwe")
+
+[node name="Life5" type="TextureRect" parent="LivesContainer" unique_id=488817501]
+layout_mode = 2
+texture = ExtResource("2_c7xwe")
+
+[node name="Level" type="RichTextLabel" parent="." unique_id=1546799008]
+offset_left = 501.0
+offset_top = 340.0
+offset_right = 682.0
+offset_bottom = 400.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 42
+text = "Level #"
+
+[node name="Timer" type="RichTextLabel" parent="." unique_id=789205518]
+offset_left = 537.0
+offset_top = 403.0
+offset_right = 622.0
+offset_bottom = 465.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 42
+text = "0.0
+"

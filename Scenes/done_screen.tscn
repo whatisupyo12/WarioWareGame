@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://c5m103cffgewc"]
+
+[ext_resource type="Script" uid="uid://c6o0na4bm6vdc" path="res://Scripts/lose_screen.gd" id="1_1q1k2"]
+[ext_resource type="Texture2D" uid="uid://b7h6hx5jqmjuy" path="res://Assets/background_glacial_mountains.png" id="1_en6tx"]
+[ext_resource type="Texture2D" uid="uid://p3fmyibv6o5l" path="res://Assets/pixil-frame-0-5.png" id="2_3rr80"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nqc1h"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+angular_velocity_min = 99.999985
+angular_velocity_max = 99.999985
+gravity = Vector3(0, 400, 0)
+scale_min = 4.0
+scale_max = 8.0
+hue_variation_min = -0.5
+hue_variation_max = 0.49999997
+
+[node name="DoneScreen" type="Node2D" unique_id=836345124]
+script = ExtResource("1_1q1k2")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1602611082]
+modulate = Color(0.72156864, 0.72156864, 0.72156864, 1)
+offset_right = 1528.1368
+offset_bottom = 1020.0856
+scale = Vector2(0.7525504, 0.63524085)
+texture = ExtResource("1_en6tx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1158928759]
+offset_left = 294.0
+offset_top = 199.0
+offset_right = 884.0
+offset_bottom = 343.0
+theme_override_constants/outline_size = 13
+theme_override_font_sizes/normal_font_size = 100
+text = "YOU WIN!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1208316879]
+offset_left = 453.0
+offset_top = 377.0
+offset_right = 715.0
+offset_bottom = 444.0
+theme_override_font_sizes/font_size = 31
+text = "GO BACK"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=28384771]
+position = Vector2(594, -2)
+amount = 200
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_nqc1h")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1254480180]
+offset_left = 85.00001
+offset_top = 163.0
+offset_right = 235.0
+offset_bottom = 313.0
+rotation = 0.39660022
+texture = ExtResource("2_3rr80")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=847455710]
+offset_left = 943.0
+offset_top = 480.0
+offset_right = 1093.0
+offset_bottom = 630.0
+rotation = 0.19343597
+texture = ExtResource("2_3rr80")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=321931377]
+offset_left = 221.0
+offset_top = 57.0
+offset_right = 371.0
+offset_bottom = 207.0
+rotation = -0.44706768
+texture = ExtResource("2_3rr80")
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=189182234]
+offset_left = 59.0
+offset_top = 479.0
+offset_right = 209.0
+offset_bottom = 629.0
+rotation = -0.33995813
+texture = ExtResource("2_3rr80")
+
+[node name="TextureRect5" type="TextureRect" parent="." unique_id=594047532]
+offset_left = 964.0
+offset_top = 157.0
+offset_right = 1114.0
+offset_bottom = 307.0
+rotation = 0.44711745
+texture = ExtResource("2_3rr80")
+
+[node name="TextureRect6" type="TextureRect" parent="." unique_id=1821962742]
+offset_left = 633.0
+offset_top = 61.0
+offset_right = 783.0
+offset_bottom = 211.0
+rotation = -0.27296254
+texture = ExtResource("2_3rr80")
+
+[node name="TextureRect7" type="TextureRect" parent="." unique_id=875396109]
+offset_left = 734.0
+offset_top = 436.0
+offset_right = 884.0
+offset_bottom = 586.0
+rotation = -0.6073204
+texture = ExtResource("2_3rr80")
+
+[node name="TextureRect8" type="TextureRect" parent="." unique_id=183463804]
+offset_left = 247.0
+offset_top = 355.0
+offset_right = 397.0
+offset_bottom = 505.0
+rotation = -0.2809721
+texture = ExtResource("2_3rr80")
+
+[connection signal="pressed" from="Button" to="." method="_on_back_button_pressed"]

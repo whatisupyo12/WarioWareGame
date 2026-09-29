@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://6r40ci8cdr7x"]
+
+[ext_resource type="Texture2D" uid="uid://b7h6hx5jqmjuy" path="res://Assets/background_glacial_mountains.png" id="1_4ashd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1srr"]
+size = Vector2(1260.8574, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ashd"]
+size = Vector2(1265.2008, 180.40121)
+
+[node name="Minigame4" type="Node2D" unique_id=696169130]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=2077717849]
+repeat_size = Vector2(1148.5, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="ScrollingBackground" type="TextureRect" parent="Parallax2D" unique_id=659358699]
+modulate = Color(0.72156864, 0.72156864, 0.72156864, 1)
+offset_top = -1.0
+offset_right = 384.0
+offset_bottom = 215.0
+scale = Vector2(2.9911435, 2.6922927)
+texture = ExtResource("1_4ashd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=222236920]
+position = Vector2(1, -3)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1567852831]
+offset_left = -53.0
+offset_top = 583.0
+offset_right = 1205.0
+offset_bottom = 702.0
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2091456668]
+position = Vector2(576, 642.5)
+scale = Vector2(0.9977337, 1)
+shape = SubResource("RectangleShape2D_e1srr")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1226687875]
+position = Vector2(-147, -1687)
+scale = Vector2(0.120000005, 3.2400007)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2" unique_id=1089624887]
+offset_left = -41.66666
+offset_top = 520.98755
+offset_right = 1216.3334
+offset_bottom = 699.38257
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1801494133]
+position = Vector2(589.50024, 610.18506)
+scale = Vector2(0.9977337, 1)
+shape = SubResource("RectangleShape2D_4ashd")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1097808181]
+position = Vector2(1157, -1686)
+scale = Vector2(0.120000005, 3.2400007)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3" unique_id=1968593223]
+offset_left = -41.66666
+offset_top = 520.98755
+offset_right = 1216.3334
+offset_bottom = 699.38257
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=2142139643]
+position = Vector2(589.50024, 610.18506)
+scale = Vector2(0.9977337, 1)
+shape = SubResource("RectangleShape2D_4ashd")

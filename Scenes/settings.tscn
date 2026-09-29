@@ -1,3 +1,53 @@
 [gd_scene format=3 uid="uid://qeyycsl7sxu7"]
 
+[ext_resource type="Script" uid="uid://br0043mvhrqu0" path="res://Scripts/settings.gd" id="1_4geyq"]
+[ext_resource type="Texture2D" uid="uid://b7h6hx5jqmjuy" path="res://Assets/background_glacial_mountains.png" id="2_i44u3"]
+
 [node name="Settings" type="Node2D" unique_id=166422511]
+script = ExtResource("1_4geyq")
+
+[node name="Background" type="TextureRect" parent="." unique_id=628378184]
+modulate = Color(0.72043425, 0.72043425, 0.72043425, 1)
+offset_right = 1528.1368
+offset_bottom = 1020.0856
+scale = Vector2(0.7525504, 0.63524085)
+texture = ExtResource("2_i44u3")
+
+[node name="Fullscreen" type="Button" parent="." unique_id=1817981289]
+offset_left = 385.0
+offset_top = 138.0
+offset_right = 808.0
+offset_bottom = 232.0
+theme_override_font_sizes/font_size = 42
+text = "Fullscreen"
+
+[node name="Back" type="Button" parent="." unique_id=1133623000]
+offset_left = 519.0
+offset_top = 469.0
+offset_right = 669.0
+offset_bottom = 543.0
+theme_override_font_sizes/font_size = 42
+text = "Back
+"
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1717771012]
+visible = false
+offset_left = 385.0
+offset_top = 376.0
+offset_right = 805.0
+offset_bottom = 392.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=837319461]
+visible = false
+offset_left = 408.0
+offset_top = 297.0
+offset_right = 773.0
+offset_bottom = 356.0
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 42
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

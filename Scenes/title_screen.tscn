@@ -1,31 +1,34 @@
 [gd_scene format=3 uid="uid://dm5m3ucvdieqc"]
 
 [ext_resource type="Script" uid="uid://cys63ovk7sck7" path="res://Scripts/title_screen.gd" id="1_4gxqj"]
-[ext_resource type="Texture2D" uid="uid://bm3l2xhvg00f0" path="res://Assets/Bg.png" id="1_p3fck"]
 [ext_resource type="Texture2D" uid="uid://drfs012rkv1l0" path="res://Assets/pixil-frame-0.png" id="2_p3fck"]
+[ext_resource type="Texture2D" uid="uid://b7h6hx5jqmjuy" path="res://Assets/background_glacial_mountains.png" id="2_twnyg"]
 [ext_resource type="Texture2D" uid="uid://djev1ltkgfubi" path="res://Assets/pixil-frame-0-2.png" id="4_twnyg"]
 
 [node name="TitleScreen" type="Node2D" unique_id=741624169]
 script = ExtResource("1_4gxqj")
 
 [node name="Background" type="TextureRect" parent="." unique_id=249030957]
-offset_right = 40.0
-offset_bottom = 40.0
+modulate = Color(0.72156864, 0.72156864, 0.72156864, 1)
+offset_top = 1.0
+offset_right = 1528.1368
+offset_bottom = 1021.0856
 scale = Vector2(0.7525504, 0.63524085)
-texture = ExtResource("1_p3fck")
+texture = ExtResource("2_twnyg")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2146519217]
 offset_left = 101.0
-offset_top = 72.0
+offset_top = 76.0
 offset_right = 1080.0
-offset_bottom = 220.0
+offset_bottom = 224.0
 theme_override_colors/default_color = Color(3.37865, 3.37865, 3.37865, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 40
-theme_override_font_sizes/normal_font_size = 108
-text = "Physics Minigames"
+theme_override_font_sizes/normal_font_size = 102
+text = "Quick, Timer's UP!"
 fit_content = true
 autowrap_mode = 0
+horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="." unique_id=1663140241]
 offset_left = 212.0

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://c8spu4vkyj8by"]
+
+[ext_resource type="Script" uid="uid://c6o0na4bm6vdc" path="res://Scripts/lose_screen.gd" id="1_488pv"]
+[ext_resource type="Texture2D" uid="uid://b7h6hx5jqmjuy" path="res://Assets/background_glacial_mountains.png" id="1_s2rrh"]
+
+[node name="LoseScreen" type="Node2D" unique_id=19095585]
+script = ExtResource("1_488pv")
+
+[node name="Background" type="TextureRect" parent="." unique_id=563711273]
+modulate = Color(0.72156864, 0.72156864, 0.72156864, 1)
+offset_left = 2.0
+offset_top = 2.000001
+offset_right = 1530.1368
+offset_bottom = 1022.0856
+scale = Vector2(0.7525504, 0.63524085)
+texture = ExtResource("1_s2rrh")
+
+[node name="Button" type="Button" parent="." unique_id=117488943]
+offset_left = 702.0
+offset_top = 365.0
+offset_right = 964.0
+offset_bottom = 432.0
+theme_override_font_sizes/font_size = 31
+text = "GO BACK"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1122531342]
+offset_left = 542.0
+offset_top = 144.0
+offset_right = 1132.0
+offset_bottom = 288.0
+theme_override_constants/outline_size = 13
+theme_override_font_sizes/normal_font_size = 100
+text = "GAME OVER"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1685046306]
+position = Vector2(104, -51)
+rotation = 0.27932215
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D" unique_id=1600734675]
+position = Vector2(563.99994, 219.00003)
+rotation = -0.324324
+scale = Vector2(1.0535053, 1.0497482)
+polygon = PackedVector2Array(-113.5, -164.25, -185.5, -211.25, -250.5, -211.25, -313.5, -177.25, -337.5, -120.25, -339.5, -73.25, -317.17703, -32.139435, -265.8547, -19.880219, -244.32988, 62.501373, -176.57234, 92.587524, -186.999, 155.0567, -144, 200.00002, -91.5, 100.75, -68.5, -41.25)
+uv = PackedVector2Array(-111.5, -174.25, -185.5, -211.25, -250.5, -211.25, -311.5, -157.25, -309.5, -153.25, -299.5, -66.25, -237.5, -35.25, -221.5, 24.75, -183.5, 32.75, -141.5, 52.75, -128.5, 86.75, -127.5, 136.75, -94.5, 147.75, -61.5, -9.25)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Node2D" unique_id=726287536]
+position = Vector2(298, 653)
+rotation = 1.4251778
+scale = Vector2(1.054, -1.05)
+polygon = PackedVector2Array(-113.5, -164.25, -185.5, -211.25, -250.5, -211.25, -313.5, -177.25, -337.5, -120.25, -339.27286, -68.72905, -311.6824, -38.20331, -316.4298, 19.12941, -250.40552, 63.619827, -240.2992, 139.5153, -180.18176, 148.9452, -152, 208, -91.5, 100.75, -68.5, -41.25)
+uv = PackedVector2Array(-111.5, -174.25, -185.5, -211.25, -250.5, -211.25, -311.5, -157.25, -309.5, -153.25, -299.5, -66.25, -237.5, -35.25, -221.5, 24.75, -183.5, 32.75, -141.5, 52.75, -128.5, 86.75, -127.5, 136.75, -94.5, 147.75, -61.5, -9.25)
+
+[connection signal="pressed" from="Button" to="." method="_on_back_button_pressed"]

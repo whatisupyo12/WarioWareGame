@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://drjnwodke0q5r"]
+
+[ext_resource type="Texture2D" uid="uid://b7h6hx5jqmjuy" path="res://Assets/background_glacial_mountains.png" id="1_l4g8r"]
+[ext_resource type="Script" uid="uid://bc6yv7lsqhy6d" path="res://Scripts/minigame_2.gd" id="1_rfxq2"]
+[ext_resource type="Texture2D" uid="uid://p3fmyibv6o5l" path="res://Assets/pixil-frame-0-5.png" id="2_dfb65"]
+[ext_resource type="Script" uid="uid://cokdvmvppfnuu" path="res://Scripts/buttons.gd" id="3_rfxq2"]
+[ext_resource type="PackedScene" uid="uid://c3soh7fc0o01k" path="res://Scenes/timer_screen.tscn" id="4_dfb65"]
+[ext_resource type="Script" uid="uid://jgshx68626t7" path="res://Scripts/disappearing_text.gd" id="6_mmgun"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmgun"]
+size = Vector2(1260.8574, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h684j"]
+size = Vector2(583.8148, 119)
+
+[node name="Minigame2" type="Node2D" unique_id=1828326151]
+script = ExtResource("1_rfxq2")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1508610266]
+repeat_size = Vector2(1148.5, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="ScrollingBackground" type="TextureRect" parent="Parallax2D" unique_id=1474419759]
+modulate = Color(0.72156864, 0.72156864, 0.72156864, 1)
+offset_top = -1.0
+offset_right = 384.0
+offset_bottom = 215.0
+scale = Vector2(2.9911435, 2.6922927)
+texture = ExtResource("1_l4g8r")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2004174920]
+position = Vector2(1, -3)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=815067982]
+offset_left = -53.0
+offset_top = 583.0
+offset_right = 1205.0
+offset_bottom = 702.0
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1990417048]
+position = Vector2(576, 642.5)
+scale = Vector2(0.9977337, 1)
+shape = SubResource("RectangleShape2D_mmgun")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=101557329]
+position = Vector2(358, -448)
+rotation = 1.5773325
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2" unique_id=811255292]
+offset_left = 450.33038
+offset_top = 355.06415
+offset_right = 1030.366
+offset_bottom = 474.06415
+rotation = -0.006454573
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1770025785]
+position = Vector2(739.47125, 413.38004)
+rotation = -0.007140203
+scale = Vector2(0.9977337, 1)
+shape = SubResource("RectangleShape2D_h684j")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1741601869]
+position = Vector2(1630, -447.00003)
+rotation = 1.5773325
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3" unique_id=211940232]
+offset_left = 447.81586
+offset_top = 355.08038
+offset_right = 1030.3662
+offset_bottom = 474.08038
+rotation = -0.006454573
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=742589872]
+position = Vector2(739.71643, 413.17392)
+rotation = -0.0071402024
+scale = Vector2(0.9977337, 1)
+shape = SubResource("RectangleShape2D_h684j")
+
+[node name="Button_1" type="TextureButton" parent="." unique_id=278780725]
+offset_left = 44.0
+offset_top = 35.0
+offset_right = 194.0
+offset_bottom = 185.0
+texture_normal = ExtResource("2_dfb65")
+script = ExtResource("3_rfxq2")
+
+[node name="Button_2" type="TextureButton" parent="." unique_id=1403824051]
+offset_left = 289.0
+offset_top = 398.0
+offset_right = 439.0
+offset_bottom = 548.0
+texture_normal = ExtResource("2_dfb65")
+script = ExtResource("3_rfxq2")
+
+[node name="Button_3" type="TextureButton" parent="." unique_id=292665062]
+offset_left = 528.0
+offset_top = 206.0
+offset_right = 678.0
+offset_bottom = 356.0
+texture_normal = ExtResource("2_dfb65")
+script = ExtResource("3_rfxq2")
+
+[node name="Button_4" type="TextureButton" parent="." unique_id=1968033954]
+offset_left = 828.0
+offset_top = 114.0
+offset_right = 978.0
+offset_bottom = 264.0
+texture_normal = ExtResource("2_dfb65")
+script = ExtResource("3_rfxq2")
+
+[node name="ThemedTimer" parent="." unique_id=1306752861 instance=ExtResource("4_dfb65")]
+position = Vector2(6, 3)
+
+[node name="DisappearingText" type="RichTextLabel" parent="." unique_id=722370425]
+offset_left = 409.0
+offset_top = 201.0
+offset_right = 799.0
+offset_bottom = 390.0
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 123
+text = "CLICK!"
+script = ExtResource("6_mmgun")
+
+[connection signal="pressed" from="Button_1" to="Button_1" method="_on_pressed"]
+[connection signal="pressed" from="Button_2" to="Button_2" method="_on_pressed"]
+[connection signal="pressed" from="Button_3" to="Button_3" method="_on_pressed"]
+[connection signal="pressed" from="Button_4" to="Button_4" method="_on_pressed"]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c3soh7fc0o01k"]
+
+[ext_resource type="Script" uid="uid://ceomajogq84x0" path="res://Scripts/game_timer.gd" id="1_pvhx5"]
+
+[node name="Scene" type="Node2D" unique_id=1306752861]
+script = ExtResource("1_pvhx5")
+
+[node name="timer" type="RichTextLabel" parent="." unique_id=155071482]
+offset_left = 536.0
+offset_right = 620.0
+offset_bottom = 54.0
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/normal_font_size = 39
+text = "00"
+autowrap_mode = 0
+horizontal_alignment = 1

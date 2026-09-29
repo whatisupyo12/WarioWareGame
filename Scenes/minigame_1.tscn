@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://1klc88s7mxil"]
+
+[ext_resource type="Script" uid="uid://bmryqdroeoiji" path="res://Scripts/minigame_1.gd" id="1_5txvl"]
+[ext_resource type="PackedScene" uid="uid://bp8xokkacmpun" path="res://Scenes/Player.tscn" id="1_enoba"]
+[ext_resource type="Texture2D" uid="uid://b7h6hx5jqmjuy" path="res://Assets/background_glacial_mountains.png" id="2_11mgy"]
+[ext_resource type="Texture2D" uid="uid://p3fmyibv6o5l" path="res://Assets/pixil-frame-0-5.png" id="3_f6tb2"]
+[ext_resource type="Script" uid="uid://5s4xry02pasd" path="res://Scripts/garlics.gd" id="4_0uv5o"]
+[ext_resource type="PackedScene" uid="uid://c3soh7fc0o01k" path="res://Scenes/timer_screen.tscn" id="6_0uv5o"]
+[ext_resource type="Script" uid="uid://jgshx68626t7" path="res://Scripts/disappearing_text.gd" id="7_ojqsy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqc1h"]
+size = Vector2(1260.8574, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11mgy"]
+size = Vector2(527.1947, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6tb2"]
+size = Vector2(1267.6802, 370.50955)
+
+[sub_resource type="Animation" id="Animation_o6yob"]
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(194, 469.00003)]
+}
+
+[sub_resource type="Animation" id="Animation_5txvl"]
+resource_name = "floating"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(194, 469.00003), Vector2(193.99998, 456)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0uv5o"]
+_data = {
+&"RESET": SubResource("Animation_o6yob"),
+&"floating": SubResource("Animation_5txvl")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nqc1h"]
+radius = 45.0
+
+[node name="Minigame1" type="Node2D" unique_id=2134175959]
+script = ExtResource("1_5txvl")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1616592356]
+repeat_size = Vector2(1148.5, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="ScrollingBackground" type="TextureRect" parent="Parallax2D" unique_id=1206804609]
+modulate = Color(0.72156864, 0.72156864, 0.72156864, 1)
+offset_top = -1.0
+offset_right = 384.0
+offset_bottom = 215.0
+scale = Vector2(2.9911435, 2.6922927)
+texture = ExtResource("2_11mgy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=27055104]
+position = Vector2(1, -3)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1425591388]
+offset_left = -53.0
+offset_top = 583.0
+offset_right = 1205.0
+offset_bottom = 702.0
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1451350753]
+position = Vector2(576, 642.5)
+scale = Vector2(0.9977337, 1)
+shape = SubResource("RectangleShape2D_nqc1h")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1437403543]
+position = Vector2(53, -202)
+scale = Vector2(0.77607197, 0.9942851)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D4" unique_id=778889645]
+offset_left = 679.0
+offset_top = 646.0
+offset_right = 1205.0
+offset_bottom = 702.0
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=583075485]
+position = Vector2(942, 674)
+scale = Vector2(0.9977337, 1)
+shape = SubResource("RectangleShape2D_11mgy")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=524175932]
+position = Vector2(-440, -306)
+scale = Vector2(0.77607197, 0.9942851)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D6" unique_id=81732169]
+offset_left = 679.0
+offset_top = 646.0
+offset_right = 1205.0
+offset_bottom = 702.0
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=371127979]
+position = Vector2(942, 674)
+scale = Vector2(0.9977337, 1)
+shape = SubResource("RectangleShape2D_11mgy")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="." unique_id=461630640]
+position = Vector2(93.99999, -388)
+scale = Vector2(0.77607197, 0.9942851)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D7" unique_id=2077070038]
+offset_left = 679.0
+offset_top = 646.0
+offset_right = 1205.0
+offset_bottom = 702.0
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7" unique_id=622809798]
+position = Vector2(942, 674)
+scale = Vector2(0.9977337, 1)
+shape = SubResource("RectangleShape2D_11mgy")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1604502531]
+position = Vector2(-132, -519)
+scale = Vector2(0.10880024, 1.5686728)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2" unique_id=1143182853]
+offset_left = -53.0
+offset_top = 331.49042
+offset_right = 1213.2327
+offset_bottom = 702.0
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1486714022]
+position = Vector2(580.82916, 516.7451)
+scale = Vector2(0.9977338, 1)
+shape = SubResource("RectangleShape2D_f6tb2")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1610479170]
+position = Vector2(-132, -519)
+scale = Vector2(0.10880024, 1.5686728)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3" unique_id=1814994956]
+offset_left = 11810.636
+offset_top = 331.49042
+offset_right = 13068.636
+offset_bottom = 701.9999
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1452145704]
+position = Vector2(12435.634, 516.3601)
+scale = Vector2(0.9977338, 1)
+shape = SubResource("RectangleShape2D_f6tb2")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=1548604716]
+position = Vector2(-132, -519)
+scale = Vector2(0.10880024, 1.5686728)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D5" unique_id=990522592]
+offset_left = 11810.636
+offset_top = 331.49042
+offset_right = 13068.636
+offset_bottom = 701.9999
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1724116374]
+position = Vector2(12435.634, 516.3601)
+scale = Vector2(0.9977338, 1)
+shape = SubResource("RectangleShape2D_f6tb2")
+
+[node name="Player" parent="." unique_id=1528227015 instance=ExtResource("1_enoba")]
+position = Vector2(1088, 513)
+scale = Vector2(4, 4)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=2107282002]
+position = Vector2(141, 0)
+script = ExtResource("4_0uv5o")
+
+[node name="Lives" type="TextureRect" parent="Node2D" unique_id=1673763336]
+offset_left = 194.0
+offset_top = 469.00003
+offset_right = 344.00006
+offset_bottom = 619.00507
+scale = Vector2(0.6719995, 0.6720029)
+texture = ExtResource("3_f6tb2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D" unique_id=1448602390]
+root_node = NodePath("../Lives")
+libraries/ = SubResource("AnimationLibrary_0uv5o")
+
+[node name="Area2D" type="Area2D" parent="Node2D" unique_id=387449094]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=1402635291]
+position = Vector2(244, 516)
+shape = SubResource("CircleShape2D_nqc1h")
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=117597826]
+position = Vector2(718, -331)
+script = ExtResource("4_0uv5o")
+
+[node name="Lives" type="TextureRect" parent="Node2D2" unique_id=1043476570]
+offset_left = 194.0
+offset_top = 469.00003
+offset_right = 344.00006
+offset_bottom = 619.00507
+scale = Vector2(0.6719995, 0.6720029)
+texture = ExtResource("3_f6tb2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D2" unique_id=1126680932]
+root_node = NodePath("../Lives")
+libraries/ = SubResource("AnimationLibrary_0uv5o")
+
+[node name="Area2D" type="Area2D" parent="Node2D2" unique_id=1358851678]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/Area2D" unique_id=1972536540]
+position = Vector2(244, 516)
+shape = SubResource("CircleShape2D_nqc1h")
+
+[node name="Node2D3" type="Node2D" parent="." unique_id=1461200074]
+position = Vector2(-47, -249)
+script = ExtResource("4_0uv5o")
+
+[node name="Lives" type="TextureRect" parent="Node2D3" unique_id=564113934]
+offset_left = 194.0
+offset_top = 469.00003
+offset_right = 344.00006
+offset_bottom = 619.00507
+scale = Vector2(0.6719995, 0.6720029)
+texture = ExtResource("3_f6tb2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D3" unique_id=420721906]
+root_node = NodePath("../Lives")
+libraries/ = SubResource("AnimationLibrary_0uv5o")
+
+[node name="Area2D" type="Area2D" parent="Node2D3" unique_id=203246704]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D3/Area2D" unique_id=458302524]
+position = Vector2(244, 516)
+shape = SubResource("CircleShape2D_nqc1h")
+
+[node name="ThemedTimer" parent="." unique_id=1306752861 instance=ExtResource("6_0uv5o")]
+
+[node name="DisappearingText" type="RichTextLabel" parent="." unique_id=1503263075]
+offset_left = 290.0
+offset_top = 213.0
+offset_right = 877.0
+offset_bottom = 402.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 123
+text = "COLLECT!"
+script = ExtResource("7_ojqsy")
+
+[connection signal="garlic_collected" from="Node2D" to="." method="garlic_collect"]
+[connection signal="garlic_collected" from="Node2D2" to="." method="garlic_collect"]
+[connection signal="garlic_collected" from="Node2D3" to="." method="garlic_collect"]
