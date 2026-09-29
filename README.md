@@ -11,6 +11,10 @@ Game link: https://2002-2.itch.io/quick-timers-up
 - Clicker Minigame where user will need to click on all icons
 - Celebratory finished screen
 
+In the platformer game, the player needs to collect all the hearts before the timer ends.
+In the clicker game, the player needs to clock on all hearts before timer ends.
+The intermission screens show how many lives the player has remaining.
+
 Assets Used:
 Brackey's platformer bundle
 https://brackeysgames.itch.io/brackeys-platformer-bundle
