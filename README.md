@@ -17,7 +17,7 @@ In the platformer game, the player needs to collect all the hearts before the ti
 In the clicker game, the player needs to clock on all hearts before timer ends.
 In the seesaw game, the player needs to select an option of the weight they want to drop, 1, 5, 10 kilogram, and drop by clicking.
 The seesaw cannot touch the ground until the timer ends for the player to move on.
-In the launcher game, the player can click and hold or hold spacebar to select a power, and aim the cannon by using mouse.
+In the launcher game, the player can click and hold or hold spacebar to select a power, and aim the cannon by using mouse. The target needs to be hit before the timer ends.
 The intermission screens show how many lives the player has remaining.
 
 Assets Used:
