@@ -13,7 +13,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if plank_area.overlaps_area(self_area): # checks if overlapping
-		emit_signal("plank_tipped") #signal broadcast
-		self.hide() #removed from player sight; collected
-	
+		emit_signal("plank_tipped") #signal broadcast	
 	

@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://5s4xry02pasd" path="res://Scripts/garlics.gd" id="4_0uv5o"]
 [ext_resource type="PackedScene" uid="uid://c3soh7fc0o01k" path="res://Scenes/timer_screen.tscn" id="6_0uv5o"]
 [ext_resource type="Script" uid="uid://jgshx68626t7" path="res://Scripts/disappearing_text.gd" id="7_ojqsy"]
+[ext_resource type="PackedScene" uid="uid://yv4hbs2h31pr" path="res://Scenes/PauseMenu.tscn" id="8_jmcek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqc1h"]
 size = Vector2(1260.8574, 119)
@@ -265,6 +266,8 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 123
 text = "COLLECT!"
 script = ExtResource("7_ojqsy")
+
+[node name="PauseUI" parent="." unique_id=678217723 instance=ExtResource("8_jmcek")]
 
 [connection signal="garlic_collected" from="Node2D" to="." method="garlic_collect"]
 [connection signal="garlic_collected" from="Node2D2" to="." method="garlic_collect"]

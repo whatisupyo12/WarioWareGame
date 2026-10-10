@@ -5,7 +5,7 @@ var time : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	timer.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 func Timer(start_time: float): # making a new function for timer countdown!
 	# we want the timer to go down, and when it reaches 0 it transitions 
 	# to the next scene!
-	
+	timer.show()
 	time = start_time
 	
 	while time > 0.0: # run if timer hasnt reached 0

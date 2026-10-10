@@ -13,7 +13,7 @@ var time
 func _ready() -> void:
 	await Timer(3.0) # using the function created
 	
-	if Global.minigames_done < 2: # if you havent completed 3 minigames yet 
+	if Global.minigames_done < 4: # if you havent completed 4 minigames yet 
 		Global.minigames_done = Global.minigames_done + 1
 		get_tree().change_scene_to_file("res://Scenes/minigame_" + str(Global.minigames_done) + ".tscn") # changes your scene by arranging this frankenstein path. 
 # Above, your script is being told to go to the next minigame. If the 
@@ -26,7 +26,7 @@ func _ready() -> void:
 		get_tree().change_scene_to_file("res://Scenes/title_screen.tscn") # changes your scene
 	
 
-func _process(delta: float) -> void: # runs EVERY FRAME
+func _process(_delta: float) -> void: # runs EVERY FRAME
 	match Global.lives: # asks or checks if lives is equal to one of 
 #these values, cool hack. by the way this is a horrid way to illustrate the 
 #lives visually so later you can always find alternative code. Now, dw abt it.

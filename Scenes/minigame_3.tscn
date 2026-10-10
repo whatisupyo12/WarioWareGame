@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c3soh7fc0o01k" path="res://Scenes/timer_screen.tscn" id="2_h40nw"]
 [ext_resource type="Script" uid="uid://jgshx68626t7" path="res://Scripts/disappearing_text.gd" id="4_we0jk"]
 [ext_resource type="Script" uid="uid://eo6xhfe3xd6l" path="res://Scripts/death_zone.gd" id="5_6sdpr"]
+[ext_resource type="PackedScene" uid="uid://yv4hbs2h31pr" path="res://Scenes/PauseMenu.tscn" id="6_lr4ld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h40nw"]
 size = Vector2(1259.8551, 119)
@@ -19,9 +20,6 @@ size = Vector2(696, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgl7k"]
 size = Vector2(807, 15)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqc1h"]
-size = Vector2(24, 24)
 
 [node name="Minigame3" type="Node2D" unique_id=42050046]
 script = ExtResource("1_ihkhm")
@@ -120,6 +118,7 @@ offset_left = 1059.0
 offset_top = 199.0
 offset_right = 1099.0
 offset_bottom = 239.0
+color = Color(0, 1, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2" unique_id=1954321783]
 layout_mode = 0
@@ -136,6 +135,7 @@ offset_left = 1060.0
 offset_top = 252.0
 offset_right = 1100.0
 offset_bottom = 292.0
+color = Color(1, 1, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect3" unique_id=1329209921]
 layout_mode = 0
@@ -152,6 +152,7 @@ offset_left = 1060.0
 offset_top = 305.0
 offset_right = 1100.0
 offset_bottom = 345.0
+color = Color(1, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect4" unique_id=2037546234]
 layout_mode = 0
@@ -178,6 +179,7 @@ position = Vector2(581, 505)
 
 [node name="Polygon2D" type="Polygon2D" parent="Fulcrum" unique_id=343478741]
 position = Vector2(-148, -75)
+color = Color(0.24658787, 0.2465879, 0.24658787, 1)
 polygon = PackedVector2Array(100, 0, 0, 150, 200, 150)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fulcrum" unique_id=432232120]
@@ -186,10 +188,11 @@ polygon = PackedVector2Array(100, 0, 0, 150, 200, 150)
 
 [node name="Plank" type="RigidBody2D" parent="." unique_id=1464110429]
 position = Vector2(577, 510)
-mass = 3.0
+mass = 26.942
 
 [node name="Polygon2D" type="Polygon2D" parent="Plank" unique_id=2036860762]
 position = Vector2(-40, -24)
+color = Color(0.3384729, 0.3384729, 0.33847287, 1)
 polygon = PackedVector2Array(-352, -88, 344, -88, 344, -56, -352, -56)
 uv = PackedVector2Array(-232, -88, 344, -88, 344, -56, -232, -56)
 
@@ -218,267 +221,10 @@ script = ExtResource("5_6sdpr")
 position = Vector2(-41.5, 75.5)
 shape = SubResource("RectangleShape2D_tgl7k")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=2057589757]
-position = Vector2(254, 192)
+[node name="PauseUI" parent="." unique_id=678217723 instance=ExtResource("6_lr4ld")]
+visible = false
 
-[node name="Box" type="RigidBody2D" parent="Node2D" unique_id=53351109]
-position = Vector2(650, -38)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box" unique_id=1396237061]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box" unique_id=984711748]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box2" type="RigidBody2D" parent="Node2D" unique_id=2055870789]
-position = Vector2(357, -52)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box2" unique_id=1574455183]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box2" unique_id=393593546]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box3" type="RigidBody2D" parent="Node2D" unique_id=484526302]
-position = Vector2(-107, 13)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box3" unique_id=1760134265]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box3" unique_id=1801019636]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box4" type="RigidBody2D" parent="Node2D" unique_id=788899042]
-position = Vector2(127, -81)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box4" unique_id=2057051565]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box4" unique_id=341553528]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box5" type="RigidBody2D" parent="Node2D" unique_id=1116707415]
-position = Vector2(-44, -133)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box5" unique_id=1601833067]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box5" unique_id=586135642]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box6" type="RigidBody2D" parent="Node2D" unique_id=1449210102]
-position = Vector2(-96, 165)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box6" unique_id=1619828440]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box6" unique_id=283444251]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box7" type="RigidBody2D" parent="Node2D" unique_id=345413570]
-position = Vector2(449, 13)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box7" unique_id=323470463]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box7" unique_id=1804069615]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box8" type="RigidBody2D" parent="Node2D" unique_id=331444611]
-position = Vector2(71, 2)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box8" unique_id=15077587]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box8" unique_id=70946632]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box9" type="RigidBody2D" parent="Node2D" unique_id=1282436621]
-position = Vector2(147, 306)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box9" unique_id=2129357814]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box9" unique_id=1316480353]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box10" type="RigidBody2D" parent="Node2D" unique_id=2047497343]
-position = Vector2(576, -144)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box10" unique_id=1696778362]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box10" unique_id=735080983]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box11" type="RigidBody2D" parent="Node2D" unique_id=1829948020]
-position = Vector2(789, 246)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box11" unique_id=1926345783]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box11" unique_id=1584882792]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box12" type="RigidBody2D" parent="Node2D" unique_id=414303134]
-position = Vector2(325, 107)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box12" unique_id=599267004]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box12" unique_id=362953313]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box13" type="RigidBody2D" parent="Node2D" unique_id=2100364519]
-position = Vector2(839, -94)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box13" unique_id=646184452]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box13" unique_id=1396712746]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box14" type="RigidBody2D" parent="Node2D" unique_id=1583551327]
-position = Vector2(-97, 280)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box14" unique_id=283181059]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box14" unique_id=610397017]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box15" type="RigidBody2D" parent="Node2D" unique_id=1277634824]
-position = Vector2(503, 282)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box15" unique_id=2084585165]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box15" unique_id=149028360]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box16" type="RigidBody2D" parent="Node2D" unique_id=779765772]
-position = Vector2(677, 165)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box16" unique_id=1879274029]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box16" unique_id=779779608]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box17" type="RigidBody2D" parent="Node2D" unique_id=1395111916]
-position = Vector2(898, 363)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box17" unique_id=1926214222]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box17" unique_id=1086211933]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box18" type="RigidBody2D" parent="Node2D" unique_id=657904352]
-position = Vector2(155, 165)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box18" unique_id=469329058]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box18" unique_id=1165576515]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box19" type="RigidBody2D" parent="Node2D" unique_id=1654488385]
-position = Vector2(736, 76)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box19" unique_id=965867402]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box19" unique_id=524664874]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
-[node name="Box20" type="RigidBody2D" parent="Node2D" unique_id=1067111619]
-position = Vector2(453, 161)
-angular_damp = 2.0
-
-[node name="Polygon2D" type="Polygon2D" parent="Node2D/Box20" unique_id=1864396640]
-position = Vector2(37, 0)
-polygon = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-uv = PackedVector2Array(-96.00001, -16, -96.00001, 8.000002, -72, 8.000002, -72, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Box20" unique_id=1393779867]
-position = Vector2(-47, -4)
-shape = SubResource("RectangleShape2D_nqc1h")
-
+[connection signal="pressed" from="CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="CheckBox2" to="." method="_on_check_box_2_pressed"]
+[connection signal="pressed" from="CheckBox3" to="." method="_on_check_box_3_pressed"]
 [connection signal="plank_tipped" from="Death" to="." method="_on_death_plank_tipped"]

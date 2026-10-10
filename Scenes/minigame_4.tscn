@@ -1,14 +1,77 @@
 [gd_scene format=3 uid="uid://6r40ci8cdr7x"]
 
 [ext_resource type="Texture2D" uid="uid://b7h6hx5jqmjuy" path="res://Assets/background_glacial_mountains.png" id="1_4ashd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1srr"]
-size = Vector2(1260.8574, 119)
+[ext_resource type="Script" uid="uid://bfkibpv5xfqpi" path="res://Scripts/minigame_4.gd" id="1_e1srr"]
+[ext_resource type="PackedScene" uid="uid://c3soh7fc0o01k" path="res://Scenes/timer_screen.tscn" id="3_wcvdo"]
+[ext_resource type="Script" uid="uid://jgshx68626t7" path="res://Scripts/disappearing_text.gd" id="4_xea2i"]
+[ext_resource type="PackedScene" uid="uid://yv4hbs2h31pr" path="res://Scenes/PauseMenu.tscn" id="5_ake4f"]
+[ext_resource type="Script" uid="uid://d3267j6veeph" path="res://Scenes/target.gd" id="6_ake4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ashd"]
 size = Vector2(1265.2008, 180.40121)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nqc1h"]
+particle_flag_disable_z = true
+spread = 30.0
+initial_velocity_min = 416.72998
+initial_velocity_max = 495.87
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqc1h"]
+size = Vector2(52, 52.00003)
+
+[sub_resource type="Animation" id="Animation_57wpc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(956, 436)]
+}
+
+[sub_resource type="Animation" id="Animation_frvhq"]
+resource_name = "side"
+length = 1.8
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1000, 436), Vector2(900, 436), Vector2(800, 436), Vector2(700, 436), Vector2(600, 436), Vector2(500, 436), Vector2(400, 436)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yexny"]
+_data = {
+&"RESET": SubResource("Animation_57wpc"),
+&"side": SubResource("Animation_frvhq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1srr"]
+size = Vector2(2123.813, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ake4f"]
+size = Vector2(50.113586, 168)
+
 [node name="Minigame4" type="Node2D" unique_id=696169130]
+script = ExtResource("1_e1srr")
+min_angle = -85.0
+min_force = 300.0
+max_force = 1200.0
+charge_speed = 120.0
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=2077717849]
 repeat_size = Vector2(1148.5, 0)
@@ -21,21 +84,6 @@ offset_right = 384.0
 offset_bottom = 215.0
 scale = Vector2(2.9911435, 2.6922927)
 texture = ExtResource("1_4ashd")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=222236920]
-position = Vector2(1, -3)
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1567852831]
-offset_left = -53.0
-offset_top = 583.0
-offset_right = 1205.0
-offset_bottom = 702.0
-color = Color(0.1494745, 0.14947453, 0.1494745, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2091456668]
-position = Vector2(576, 642.5)
-scale = Vector2(0.9977337, 1)
-shape = SubResource("RectangleShape2D_e1srr")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1226687875]
 position = Vector2(-147, -1687)
@@ -53,18 +101,147 @@ position = Vector2(589.50024, 610.18506)
 scale = Vector2(0.9977337, 1)
 shape = SubResource("RectangleShape2D_4ashd")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1097808181]
-position = Vector2(1157, -1686)
-scale = Vector2(0.120000005, 3.2400007)
+[node name="ThemedTimer" parent="." unique_id=1306752861 instance=ExtResource("3_wcvdo")]
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D3" unique_id=1968593223]
-offset_left = -41.66666
-offset_top = 520.98755
-offset_right = 1216.3334
-offset_bottom = 699.38257
+[node name="PauseUI" parent="." unique_id=678217723 instance=ExtResource("5_ake4f")]
+
+[node name="CannonPivot" type="Node2D" parent="." unique_id=559868782]
+position = Vector2(116, 549)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CannonPivot" unique_id=1623978880]
+modulate = Color(1, 0.4862745, 0, 1)
+position = Vector2(77, 0)
+emitting = false
+amount = 20
+lifetime = 0.25
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_nqc1h")
+
+[node name="Barrel" type="ColorRect" parent="CannonPivot" unique_id=1563023613]
+offset_left = -11.000002
+offset_top = -11.000001
+offset_right = 28.999998
+offset_bottom = 29.0
+scale = Vector2(2.5002306, 0.58141834)
+color = Color(0.37602848, 0.37602848, 0.37602845, 1)
+
+[node name="Muzzle" type="Node2D" parent="CannonPivot" unique_id=741645368]
+position = Vector2(89, 0)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1957383283]
+
+[node name="ProgressBar" type="ProgressBar" parent="UI" unique_id=914324838]
+offset_left = 97.0
+offset_top = 584.0
+offset_right = 290.0
+offset_bottom = 611.0
+step = 1.0
+
+[node name="DisappearingText" type="RichTextLabel" parent="UI" unique_id=1582313296]
+offset_left = 254.0
+offset_top = 192.0
+offset_right = 853.0
+offset_bottom = 381.0
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 123
+text = "LAUNCH!"
+script = ExtResource("4_xea2i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI" unique_id=458585103]
+offset_left = 20.0
+offset_top = 585.0
+offset_right = 100.0
+offset_bottom = 625.0
+text = "POWER"
+
+[node name="Target" type="Area2D" parent="." unique_id=1084017827]
+position = Vector2(956, 436)
+script = ExtResource("6_ake4f")
+
+[node name="Polygon2D" type="Polygon2D" parent="Target" unique_id=473683180]
+position = Vector2(140, 94)
+color = Color(1, 1, 0.5254902, 1)
+polygon = PackedVector2Array(-120, -56, -173, 48, -66, 48)
+uv = PackedVector2Array(-120, -56, -184, 48, -64, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target" unique_id=812951456]
+position = Vector2(20, 29)
+shape = SubResource("RectangleShape2D_nqc1h")
+
+[node name="ColorRect" type="ColorRect" parent="Target" unique_id=388390353]
+offset_left = -6.0000176
+offset_top = 2.9999774
+offset_right = 41.570232
+offset_bottom = 50.58738
+scale = Vector2(1.0931201, 1.0927266)
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Target" unique_id=1308700535]
+offset_left = 3.0
+offset_top = 12.000008
+offset_right = 34.103638
+offset_bottom = 43.114845
+scale = Vector2(1.0931201, 1.0927266)
+
+[node name="ColorRect2" type="ColorRect" parent="Target/ColorRect2" unique_id=475958255]
+layout_mode = 0
+offset_left = 8.233315
+offset_top = 8.236274
+offset_right = 21.623453
+offset_bottom = 21.636055
+scale = Vector2(1.0931201, 1.0927266)
+color = Color(1, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Target" unique_id=125943499]
+libraries/ = SubResource("AnimationLibrary_yexny")
+
+[node name="Polygon2D2" type="Polygon2D" parent="Target" unique_id=2144981159]
+color = Color(0.3665946, 0.3665946, 0.36659458, 1)
+polygon = PackedVector2Array(-33, 142, 74, 142, 63, 121, -22, 121)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Target/Polygon2D2" unique_id=70035077]
+position = Vector2(7.999979, -42)
+scale = Vector2(0.5981298, 1)
+color = Color(0.3665946, 0.3665946, 0.36659458, 1)
+polygon = PackedVector2Array(-33, 142, 74, 142, 55.710938, 121, -15.782959, 121)
+
+[node name="Ground" type="Area2D" parent="." unique_id=1137516171]
+
+[node name="ColorRect" type="ColorRect" parent="Ground" unique_id=2125520418]
+offset_left = -53.0
+offset_top = 578.0
+offset_right = 2066.0
+offset_bottom = 697.0
 color = Color(0.1494745, 0.14947453, 0.1494745, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=2142139643]
-position = Vector2(589.50024, 610.18506)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=478543721]
+position = Vector2(1006.5, 637.5)
 scale = Vector2(0.9977337, 1)
-shape = SubResource("RectangleShape2D_4ashd")
+shape = SubResource("RectangleShape2D_e1srr")
+
+[node name="Ground2" type="Area2D" parent="." unique_id=1118299615]
+
+[node name="ColorRect" type="ColorRect" parent="Ground2" unique_id=706030096]
+offset_left = 297.0
+offset_top = 410.0
+offset_right = 347.0
+offset_bottom = 578.0
+color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2" unique_id=364236848]
+position = Vector2(322, 494)
+scale = Vector2(0.9977337, 1)
+shape = SubResource("RectangleShape2D_ake4f")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=854806576]
+position = Vector2(147.49979, 560.5259)
+rotation = 0.0004140358
+scale = Vector2(0.5624999, 0.5550923)
+color = Color(0.23392546, 0.23392546, 0.2339254, 1)
+polygon = PackedVector2Array(-184, 32, -184, 32, 72.00003, 32, 23.99997, -31.999996, -56, -64, -136, -31.999996)
+uv = PackedVector2Array(-184, 32, -184, 32, 64, 32, 24, -32, -64, -56, -144, -32)
+
+[connection signal="body_entered" from="Target" to="." method="_on_target_body_entered"]
+[connection signal="body_entered" from="Ground" to="." method="_on_ground_body_entered"]
+[connection signal="body_entered" from="Ground2" to="." method="_on_ground_body_entered"]

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cokdvmvppfnuu" path="res://Scripts/buttons.gd" id="3_rfxq2"]
 [ext_resource type="PackedScene" uid="uid://c3soh7fc0o01k" path="res://Scenes/timer_screen.tscn" id="4_dfb65"]
 [ext_resource type="Script" uid="uid://jgshx68626t7" path="res://Scripts/disappearing_text.gd" id="6_mmgun"]
+[ext_resource type="PackedScene" uid="uid://yv4hbs2h31pr" path="res://Scenes/PauseMenu.tscn" id="7_h684j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmgun"]
 size = Vector2(1260.8574, 119)
@@ -124,6 +125,8 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 123
 text = "CLICK!"
 script = ExtResource("6_mmgun")
+
+[node name="PauseUI" parent="." unique_id=678217723 instance=ExtResource("7_h684j")]
 
 [connection signal="pressed" from="Button_1" to="Button_1" method="_on_pressed"]
 [connection signal="pressed" from="Button_2" to="Button_2" method="_on_pressed"]

@@ -12,8 +12,7 @@ func _ready() -> void:
 		#Below you can see that I have a function that I named. I grab a 
 		#function from it that was created in it's script and use `await` to 
 		# tell the script to wait for a signal, or for when a function finshes
-
-
+	await get_tree().create_timer(1.0).timeout
 	await themed_timer.Timer(10.0) #accessing a function from this node
 	#after this is compeleted...
 	timer_end = true # now we're saying "oh ye you ran out of time"
